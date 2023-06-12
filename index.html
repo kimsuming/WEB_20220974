@@ -13,6 +13,8 @@
     <script type="text/javascript" src="js/pop_up.js" defer></script>
     <script type="text/javascript" src="js/hover.js" defer></script>
     <script type="text/javascript" src="js/join.js" defer></script>
+    <script type="text/javascript" src="js/cookie.js" defer></script>
+    <script type="text/javascript" src="js/session.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
 </head>
 
@@ -51,7 +53,7 @@
                         </p>
                     </li>
                     <li class="nav-item">
-                        <button class="btn btn-outline-success" type="submit" onclick="location.href='login/login.html'">로그인 </button>
+                        <button class="btn btn-outline-success" type="submit" onclick="location.href='/login.html'">로그인 </button>
                     </li>
                     <li>
                         <p>
@@ -59,7 +61,7 @@
                         </p>
                     </li>
                     <li class="nav-item">
-                        <input class="btn btn-outline-success" onclick="join();" type="button" id="join_btn" value="회원 가입">
+                        <input class="btn btn-outline-success" onclick="location.href='/join.html'" type="button" id="join_btn" value="회원 가입">
                     </li>
                 </ul>
             </div>
@@ -84,7 +86,7 @@
     <br>
     <div class="mx-auto" style="width: 500px;">
         <p style="text-align:center;">
-            <a herf="index.html" target="_self"><img src="img/googlelogo_color.png" class="img-fluid"></a>
+            <a href="/index.html" target="_self"><img src="img/googlelogo_color.png" class="img-fluid"></a>
             <font size="2en" color="green"></font>
         </p>
     </div>

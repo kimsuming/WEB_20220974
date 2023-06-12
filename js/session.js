@@ -1,22 +1,23 @@
-function session_set(){ //세션 저장(객체)    
+function session_set(){
     let id = document.querySelector("#floatingInput");
     let password = document.querySelector("#floatingPassword");
-    let random = new Date(); // 랜덤 타임스탬프
+    let random = new Date();
     
-    const obj = { // 객체 선언
+    const obj = {
     id : id.value,
     otp : random
     }
     
     if (sessionStorage) {
-        const objString = JSON.stringify(obj); // 객체 -> JSON 문자열 변환
-        let en_text = encrypt_text(objString); // 암호화
+        const objString = JSON.stringify(obj);
+        let en_text = encrypt_text(objString);
         sessionStorage.setItem("Session_Storage_object", objString);
         sessionStorage.setItem("Session_Storage_encrypted", en_text);
     } else {
         alert("세션 스토리지 지원 x");
     }   
 }
+
 
 function session_get() { //세션 읽기
     if (sessionStorage) {
@@ -45,13 +46,32 @@ function init(){ // 로그인 폼에 쿠키에서 가져온 아이디 입력
     session_check(); // 세션 유무 검사
 }
 
-function session_del() {//세션 삭제
-    // Check if the sessionStorage object exists
+function session_del() {
     if (sessionStorage) {
-        // Retrieve data
         sessionStorage.removeItem("Session_Storage_object");
         alert('로그아웃 버튼 클릭 확인 : 세션 스토리지를 삭제합니다.');
     } else {
         alert("세션 스토리지 지원 x");
     }
+}
+
+function session_join_set(){   
+    let name = document.querySelector("#joinname");
+    let nickname = document.querySelector("#joinnickname");
+    let emailfront = document.querySelector("#joinemailfront");
+    let emailback = document.querySelector("#joinemailback");
+    let password = document.querySelector("#joinpassword");
+    let random = new Date();
+	
+    const newSignUp = new SignUp(name, nickname, emailfront, emailback, password, random);
+    console.log(newSignUp.emailadress);
+    
+    if (sessionStorage) {
+        const objString = JSON.stringify(newSignUp);
+        let en_text = encrypt_text(objString);
+        sessionStorage.setItem("Session_Storage_object", objString);
+        sessionStorage.setItem("Session_Storage_encryted", en_text);
+    } else {
+        alert("세션 스토리지 지원 x");
+    }   
 }
